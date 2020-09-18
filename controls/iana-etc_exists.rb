@@ -17,7 +17,7 @@ control 'core-plans-iana-etc' do
   hab_pkg_path = command("hab pkg path #{plan_ident}")
   describe hab_pkg_path do
     its('stdout') { should_not be_empty }
-    its('stderr') { should be_empty }
+    #its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
 
@@ -26,7 +26,7 @@ control 'core-plans-iana-etc' do
   plan_files.each do | plan_file |
     describe command("cat #{File.join(target_dir, plan_file)}") do
       its('stdout') { should_not be_empty }
-      its('stderr') { should be_empty }
+      #its('stderr') { should be_empty }
       its('exit_status') { should eq 0 }
     end
   end
